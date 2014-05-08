@@ -1,0 +1,195 @@
+* {
+  background-size: 100%;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+
+.prototype-container {
+  position: relative;
+}
+
+h2 {
+  margin: 20px 0 0 60px;
+}
+
+p {
+  margin-left: 60px;
+  width: 80%;
+}
+
+.window {
+  position: relative;
+  width: 852px;
+  height: 191px;
+  background-image: url('../img/window.png');
+}
+
+.tabstrip {
+  position: absolute;
+  float: left;
+  width: 630px;
+  height: 40px;
+  left: 150px;
+  top: 35px;
+  padding-left: 24px;
+}
+
+.tabstrip.no-overflow {
+  width: 530px;
+  overflow: hidden;
+}
+
+.tab {
+  float: left;
+  width: 200px;
+  height: 100%;
+  text-align: center;
+  position: relative;
+  background-repeat: no-repeat,
+                     no-repeat,
+                     no-repeat;
+  background-position: left,
+                       right,
+                       center;
+  background-size: auto 100%,
+                   auto 100%,
+                   152px 100%;
+  
+  margin-left: -24px;
+  cursor: default;
+}
+
+.tab.selected {
+  background-image: url('../img/left.png'),
+                    url('../img/right.png'),
+                    url('../img/middle.png');
+  z-index: 99;
+}
+
+.tab:not(.selected):hover, .tab.hover-freeze {
+  background-image: url('../img/left-hover.png'),
+                    url('../img/right-hover.png'),
+                    url('../img/middle-hover.png');
+}
+
+.tab:not(.selected):not(:hover):not(:last-child) {
+  background-image: url('../img/seperator.png');
+  background-position: 186px 0;
+}
+
+.tab.shifted {
+  margin-left: -200px;
+}
+
+.caption {
+  display: block;
+  margin-top: 18px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #666;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.tab.selected .caption, .tab:hover .caption {
+  color: #333;
+}
+
+.close {
+  width: 8px;
+  height: 8px;
+  background-image: url('../img/close-inactive.png');
+  position: absolute;
+  right: 22px;
+  top: 21px;
+}
+.tab.selected .close {
+  background-image: url('../img/close.png');
+}
+
+.tab.medium {
+  width: 156px;
+  background-size: auto 100%,
+                   auto 100%,
+                   106px 100%;
+}
+.tab.medium:not(.selected):not(:hover):not(:last-child) {
+  background-image: url('../img/seperator.png');
+  background-position: 142px 0;
+}
+
+.tab.small {
+  width: 60px;
+  background-size: auto 100%,
+                   auto 100%,
+                   10px 100%;
+}
+
+.tab.extra-small {
+  width: 50px;
+  background-size: auto 100%,
+                   auto 100%,
+                   0px 100%;
+}
+
+.tab.small .caption, .tab.small .close {
+  opacity: 0;
+}
+
+.tab.small.plus .caption {
+  opacity: 1;
+  font-size: 18px;
+  margin-top: 14px;
+}
+
+.overflow {
+  position: absolute;
+  left: 704px;
+  top: 36px;
+  padding: 13px 0 5px 10px;
+  width: 200px;
+  background-image: url('../img/overflow-seperator.png');
+  background-repeat: no-repeat;
+  background-size: 2px auto;
+  z-index: 150;
+}
+
+.tab-helper {
+  position: absolute;
+  float: left;
+  width: 1000px;
+  height: 40px;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  font-size: 12px;
+  width: 280px;
+  background: #fff;
+  z-index: 99;
+  padding: 8px;
+  margin-top: 10px;
+  margin-left: -25%;
+  pointer-events: none;
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+  border-radius: 2px;
+  opacity: .9;
+}
+
+.tooltip:after {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #fff;
+  border-width: 10px;
+  margin-left: -10px;
+}
+
+.tab:hover .tooltip {
+  display: block;
+}
